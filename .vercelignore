@@ -1,0 +1,10 @@
+# Python backend — not part of the served static site
+main.py
+config.py
+collectors/
+requirements.txt
+.env.example
+.github/
+__pycache__/
+*.pyc
+.vercel
