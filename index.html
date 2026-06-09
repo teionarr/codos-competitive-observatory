@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1280" />
+<title>Observatory — CODOS Competitive Intel</title>
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=2026053118" />
+<script>
+  // Set theme before first paint to avoid a flash: stored choice, else system preference.
+  (function () {
+    try {
+      var stored = localStorage.getItem("obs.theme");
+      var theme = stored ||
+        (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  })();
+</script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="data.js?v=2026053113"></script>
+<script type="text/babel" src="icons.jsx?v=2026053120"></script>
+<script type="text/babel" src="shell.jsx?v=2026053120"></script>
+<script type="text/babel" src="sources.jsx?v=2026053114"></script>
+<script type="text/babel" src="feed.jsx?v=2026053115"></script>
+<script type="text/babel" src="map.jsx?v=2026053116"></script>
+<script type="text/babel" src="insights.jsx?v=2026053114"></script>
+<script type="text/babel" src="secondary.jsx?v=2026053117"></script>
+
+<script type="text/babel" data-presets="react">
+function App() {
+  const [active, setActive] = React.useState("feed");
+
+  React.useEffect(() => { localStorage.setItem("obs.view", active); }, [active]);
+
+  // Keyboard: g-f/g-m/g-r jumps views
+  React.useEffect(() => {
+    let pending = null;
+    const onKey = (e) => {
+      if (e.target.tagName === "INPUT") return;
+      if (e.key === "g") { pending = "g"; setTimeout(() => { pending = null; }, 800); return; }
+      if (pending === "g") {
+        pending = null;
+        if (e.key === "f") setActive("feed");
+        if (e.key === "m") setActive("map");
+        if (e.key === "i") setActive("insights");
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  let view;
+  if (active === "feed") view = <VelocityFeed />;
+  else if (active === "map") view = <CompetitorMap />;
+  else if (active === "insights") view = <InsightsFeed />;
+  else if (active === "sources") view = <DataSourcesView />;
+  else if (active === "history") view = <ScanHistoryView onOpenInsights={() => setActive("insights")} />;
+  else view = <VelocityFeed />;
+
+  return (
+    <Shell active={active} setActive={setActive} density="compact">
+      <div className="main-inner" data-screen-label={"view/" + active}>
+        {view}
+      </div>
+    </Shell>
+  );
+}
+
+function mountApp() {
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+}
+// If data loaded before Babel finished compiling this script, render immediately
+if (window.__obsDataReady) {
+  mountApp();
+} else {
+  window.addEventListener("obs:data-ready", mountApp);
+}
+</script>
+</body>
+</html>

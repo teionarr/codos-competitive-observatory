@@ -1,0 +1,166 @@
+[
+  {
+    "id": "ins-2026-05-31-4",
+    "scan_date": "2026-05-31",
+    "generated_at": "2026-05-31T13:22:01.119090+00:00",
+    "title": "AI Becomes Core to Predictive Food Formulation & Sensory Optimization",
+    "insight": "Competitors are deepening AI's role in product development, moving beyond ideation to active formulation, ingredient interaction prediction, and sensory optimization. This requires Tastewise to demonstrate its capability in not only identifying trends but also providing actionable, AI-driven guidance for precise product creation and refinement for food scientists and CPG brands.",
+    "trend": "The underlying market force is the demand for faster, more efficient, and data-driven R&D cycles, where AI acts as a co-creator and predictive tool to reduce development costs and improve product success rates by simulating complex ingredient interactions and sensory outcomes.",
+    "category": "Decision Engines",
+    "magnitude": 95,
+    "sources": [
+      "exa",
+      "web"
+    ],
+    "evidence": [
+      "TraceGains Unveils Formula AI, an AI-Powered Laboratory and Workspace for Food Scientists",
+      "Ipsos Launches Product Studio: A New Era of Product Testing",
+      "Food Makers Deploy AI Across Full Product Development Cycle",
+      "AI enables faster food formulation cycles, as \u201cgenerative tools can explore thousands of ideas rapidly.\u201d",
+      "AI predicts taste, mouthfeel, melting, crispiness and guides optimization for alt-meat, alt-dairy, beverages, and ready meals.",
+      "Cargill is embedding AI across the full innovation journey, from early consumer insight and concept development through formulation, scale-up, and execution.",
+      "AI framework suggests 1-3 ingredient swaps for healthier, cheaper meals."
+    ],
+    "supersedes": "ins-2026-05-31-1",
+    "superseded_by": null
+  },
+  {
+    "id": "ins-2026-05-31-5",
+    "scan_date": "2026-05-31",
+    "generated_at": "2026-05-31T13:22:01.119090+00:00",
+    "title": "AI Drives Proactive & Predictive Restaurant Operational Intelligence",
+    "insight": "New solutions are enhancing restaurant operations with AI for proactive risk management, real-time kitchen optimization, and comprehensive revenue intelligence. Tastewise must integrate its consumer and menu trend data into these advanced operational AI layers to offer a holistic view that connects demand signals directly to predictive operational adjustments and profitability strategies.",
+    "trend": "The market is shifting towards AI solutions that provide predictive and prescriptive insights, enabling restaurants to move from reactive management to proactive optimization of costs, labor, inventory, and customer experience in real-time.",
+    "category": "Decision Engines",
+    "magnitude": 90,
+    "sources": [
+      "exa",
+      "web"
+    ],
+    "evidence": [
+      "allO Raises $14M Series A to Scale the First AI-Native Operating System for Restaurants",
+      "Sapaad Launches \"Sapaad Signals,\" One of the Industry's First Pre-Loss Intelligence Systems for Restaurants",
+      "Restrofi: Revolutionizing Indian Restaurants with Smart Automation and RestroAI Revenue Intelligence",
+      "Tech Spotlight: PreciTaste and the Power of Vision AI in the Kitchen",
+      "AI is helping restaurants go beyond basic personalization by using customer behavior and order history to predict demand and guide decisions.",
+      "AI helps operators improve labor, reduce waste, and make faster, more informed decisions."
+    ],
+    "supersedes": "ins-2026-05-31-2",
+    "superseded_by": null
+  },
+  {
+    "id": "ins-2026-05-31-6",
+    "scan_date": "2026-05-31",
+    "generated_at": "2026-05-31T13:22:01.119090+00:00",
+    "title": "Agentic AI & Social Commerce Redefine Personalized Grocery & Retail",
+    "insight": "The F&B retail landscape is evolving with agentic AI for automated grocery assistance and social commerce solutions that leverage behavioral models for dynamic intent prediction. Tastewise should focus on connecting its trend insights with these granular, predictive behavioral models to enable hyper-targeted marketing, personalized product recommendations, and optimized retail strategies, including emerging social selling channels.",
+    "trend": "Consumer expectations for hyper-personalization and convenience are driving the adoption of AI agents that can automate shopping, analyze social behavior, and deliver dynamic, individualized retail experiences, shifting influence from traditional supermarkets to direct-to-consumer and social channels.",
+    "category": "Decision Engines",
+    "magnitude": 90,
+    "sources": [
+      "exa",
+      "web"
+    ],
+    "evidence": [
+      "Tre'dish Revolutionizes Grocery Shopping with AI",
+      "NIQ Launches Survey Groups to Connect Consumer Sentiment with Real Purchase Behavior",
+      "Circana Introduces Social Commerce Solution to Decode Social Sales Performance",
+      "ZeroToOne.AI Deploys its Large Behavioral Model at Advertising Scale Through GroundTruth, Launching Dynamic Intent Prediction Audiences",
+      "AI systems are being used to regularly fill weekly household grocery orders without human input.",
+      "One Singaporean retailer has accumulated sufficient data on shopping patterns to generate 200 personalised advertisements per customer.",
+      "Agentic AI, where digital assistants help consumers manage pantry inventory, recommend products, and automate reordering."
+    ],
+    "supersedes": "ins-2026-05-31-3",
+    "superseded_by": null
+  },
+  {
+    "id": "ins-2026-05-31-7",
+    "scan_date": "2026-05-31",
+    "generated_at": "2026-05-31T13:22:01.119090+00:00",
+    "title": "Food-as-Medicine Ecosystems Emerge with AI-Driven Personalized Health",
+    "insight": "A significant new market is forming around 'Food as Medicine' and personalized nutrition, with platforms integrating health data, dietary recommendations, and food delivery to address chronic conditions. Tastewise has a unique opportunity to provide the underlying food and beverage intelligence for these ecosystems, connecting consumer health trends, specific ingredient efficacy, and recipe development to support personalized health outcomes.",
+    "trend": "The increasing prevalence of chronic diseases and a growing consumer demand for personalized health and wellness solutions are driving the convergence of healthcare, nutrition science, and food technology, creating integrated platforms that leverage AI for tailored dietary interventions.",
+    "category": "Data Vaults",
+    "magnitude": 85,
+    "sources": [
+      "exa",
+      "web"
+    ],
+    "evidence": [
+      "Qina launches Food Health Ecosystem to improve access to real-world data",
+      "KC-built Attane Health merges with digital grocery pioneer to forge food-is-medicine platform",
+      "Fresh Connect Now Offers Four Benefit Cards and an App",
+      "Personalized Nutrition AI Platforms market was estimated at USD 1.48 billion in 2024 and is expected to grow to USD 18.7 billion by 2034.",
+      "Food & Health Angels Network launches to accelerate metabolic health innovations to market",
+      "AI framework that suggests just one to three ingredient swaps can make meals meaningfully more nutritious and less expensive.",
+      "The growing importance of \u201cFood as Medicine\u201d and how retailers can use analytics to support healthier purchasing decisions."
+    ],
+    "supersedes": null,
+    "superseded_by": null
+  },
+  {
+    "id": "ins-2026-05-31-1",
+    "scan_date": "2026-05-31",
+    "generated_at": "2026-05-31T12:53:24.370597+00:00",
+    "title": "AI Accelerates End-to-End F&B Product Development",
+    "insight": "Competitors are launching AI-powered platforms that integrate real-time data with AI-driven formulation and testing, enabling food scientists and CPG brands to accelerate new product development from concept to market. This signifies a move towards AI as a co-creator in innovation, requiring Tastewise to demonstrate its capability in guiding not just trend identification but also tangible product formulation and optimization.",
+    "trend": "The increasing sophistication of AI models and the demand for faster, more efficient innovation cycles are pushing AI's role beyond analytics into direct R&D and product creation, streamlining the entire product lifecycle.",
+    "category": "Decision Engines",
+    "magnitude": 90,
+    "sources": [
+      "exa"
+    ],
+    "evidence": [
+      "https://www.prnewswire.com/news-releases/tracegains-unveils-formula-ai-an-ai-powered-laboratory-and-workspace-for-food-scientists-302782707.html",
+      "https://www.ipsos.com/en/ipsos-launches-product-studio-new-era-product-testing",
+      "https://mathco.com/article/orchestrating-cpg-launches-with-an-end-to-end-synthetic-intelligence-ecosystem/",
+      "https://theconsumerdaily.co/news/food-makers-deploy-ai-across-full-product-development-cycle-f69b3dfd"
+    ],
+    "supersedes": null,
+    "superseded_by": "ins-2026-05-31-4"
+  },
+  {
+    "id": "ins-2026-05-31-2",
+    "scan_date": "2026-05-31",
+    "generated_at": "2026-05-31T12:53:24.370597+00:00",
+    "title": "AI-Native Operating Systems Transform Restaurant Operations",
+    "insight": "A significant influx of investment and new product launches focuses on AI-native operating systems for restaurants, addressing everything from customer experience and revenue intelligence to pre-loss prevention and kitchen efficiency. Tastewise must integrate its deep consumer and menu trend data into these operational AI layers to provide a holistic view that connects consumer demand directly to restaurant execution and profitability.",
+    "trend": "The acute need for operational efficiency, cost reduction, and enhanced customer experiences in the competitive foodservice sector is driving the adoption of comprehensive AI platforms that automate and optimize core restaurant functions.",
+    "category": "Decision Engines",
+    "magnitude": 95,
+    "sources": [
+      "exa"
+    ],
+    "evidence": [
+      "https://bebeez.eu/2026/05/27/munichs-allo-raises-e12-million-series-a-to-expand-its-ai-operating-system-for-restaurants-across-europe/",
+      "https://www.tribuneindia.com/news/business/sapaad-launches-sapaad-signals-one-of-the-industrys-first-pre-loss-intelligence-systems-for-restaurants/",
+      "https://restaurantfinanceadvisors.com/tech-spotlight-precitaste-and-the-power-of-vision-ai-in-the-kitchen/",
+      "https://martechedge.com/news/moxie-labs-launches-fngrfood-for-restaurant-cx",
+      "https://indiabreakingbuzz.co.in/restrofi-revolutionizing-indian-restaurants-with-smart-automation-and-restroai-revenue-intelligence/"
+    ],
+    "supersedes": null,
+    "superseded_by": "ins-2026-05-31-5"
+  },
+  {
+    "id": "ins-2026-05-31-3",
+    "scan_date": "2026-05-31",
+    "generated_at": "2026-05-31T12:53:24.370597+00:00",
+    "title": "Predictive Behavioral AI Drives Hyper-Personalized Consumer Engagement",
+    "insight": "New solutions are emerging that leverage large behavioral models and survey groups to connect consumer sentiment with real purchase behavior, enabling dynamic intent prediction and hyper-personalized grocery assistance. For Tastewise, this highlights the growing demand for granular, predictive consumer intelligence that can directly inform targeted marketing, retail strategies, and product offerings, emphasizing the need to connect broad trend insights with individual-level behavioral predictions.",
+    "trend": "Advances in AI and the availability of diverse, real-world behavioral data are enabling a shift from demographic-based targeting to highly accurate, predictive models of individual consumer intent and purchasing patterns, fostering a new era of hyper-personalization.",
+    "category": "Decision Engines",
+    "magnitude": 85,
+    "sources": [
+      "exa"
+    ],
+    "evidence": [
+      "https://retail-insider.com/retail-insider/2026/05/tredish-launches-sproutai-the-first-ai-grocery-assistant-built-to-optimize-budgets/",
+      "https://nielseniq.com/global/en/news-center/2026/niq-launches-survey-groups-to-connect-consumer-sentiment-with-real-purchase-behavior/",
+      "https://www.circana.com/post/circana-introduces-social-commerce-solution-to-decode-social-sales-performance",
+      "https://www.prnewswire.com/news-releases/zerotooneai-deploys-its-large-behavioral-model-at-advertising-scale-through-groundtruth-launching-dynamic-intent-prediction-audiences-302784692.html",
+      "https://www.doppeliq.ai/atlas"
+    ],
+    "supersedes": null,
+    "superseded_by": "ins-2026-05-31-6"
+  }
+]

@@ -1,0 +1,4 @@
+exa-py>=1.1.0
+firecrawl-py>=0.0.16
+google-genai>=0.3.0
+python-dotenv>=1.0.0
