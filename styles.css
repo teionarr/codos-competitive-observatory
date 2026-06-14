@@ -154,6 +154,30 @@ a { color: inherit; text-decoration: none; }
 }
 .theme-toggle:hover, .repo-link:hover { color: var(--accent); border-color: var(--accent-line); }
 
+/* Topbar quick-add input */
+.add-company { display: inline-flex; align-items: center; }
+.add-company input {
+  height: 26px; width: 160px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-strong); border-right: 0;
+  border-radius: 4px 0 0 4px;
+  color: var(--fg); font-family: var(--font-mono); font-size: 11px;
+  padding: 0 8px; outline: none;
+  transition: border-color 0.12s;
+}
+.add-company input::placeholder { color: var(--fg-4); }
+.add-company input:focus { border-color: var(--accent-line); }
+.add-company button {
+  height: 26px; width: 26px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border-strong); border-radius: 0 4px 4px 0;
+  background: var(--bg-panel); color: var(--fg-2); cursor: pointer;
+  transition: color 0.12s, border-color 0.12s;
+}
+.add-company button:hover { color: var(--accent); border-color: var(--accent-line); }
+.add-company input:focus + button { border-color: var(--accent-line); }
+.add-company button:disabled { opacity: 0.5; cursor: default; }
+
 .sidebar {
   grid-area: sidebar;
   border-right: 1px solid var(--border);

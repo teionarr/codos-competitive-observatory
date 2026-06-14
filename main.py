@@ -257,10 +257,27 @@ def main():
         num_results=config.EXA_NUM_RESULTS,
     )
 
-    # Earlier auto-discovered entrants are folded into the tracked set so they
-    # get scraped + change-tracked alongside the curated board.
+    # User-added companies (dashboard topbar → data/watchlist.json) and earlier
+    # auto-discovered entrants are folded into the tracked set so they get
+    # scraped + change-tracked alongside the curated board.
     discovered_ledger = load_discovered()
-    tracked = config.COMPETITORS + discovered_ledger
+    watchlist = []
+    try:
+        with open("data/watchlist.json") as wf:
+            for e in json.load(wf):
+                if not e.get("url"):
+                    continue
+                watchlist.append({
+                    "id": e.get("id") or e["url"], "name": e.get("name", e.get("url")),
+                    "url": e["url"], "category": e.get("category", "Other"),
+                    "crawl_paths": ["/"], "funding": e.get("funding", "—"), "team": None,
+                    "status": e.get("status", "Emerging"), "why": e.get("why", "Added to watchlist."),
+                })
+    except Exception:
+        pass
+    tracked = config.COMPETITORS + watchlist + discovered_ledger
+    if watchlist:
+        print(f"[codos] {len(watchlist)} user-added compan(ies) from watchlist folded in")
     if discovered_ledger:
         print(f"[codos] {len(discovered_ledger)} previously-discovered entrant(s) folded in "
               f"→ {len(tracked)} tracked")

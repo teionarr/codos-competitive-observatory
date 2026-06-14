@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=2026061402" />
+<link rel="stylesheet" href="styles.css?v=2026061403" />
 <script>
   // Set theme before first paint to avoid a flash: stored choice, else system preference.
   (function () {
@@ -30,9 +30,9 @@
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
-<script src="data.js?v=2026060901"></script>
+<script src="data.js?v=2026061403"></script>
 <script type="text/babel" src="icons.jsx?v=2026053120"></script>
-<script type="text/babel" src="shell.jsx?v=2026053120"></script>
+<script type="text/babel" src="shell.jsx?v=2026061403"></script>
 <script type="text/babel" src="sources.jsx?v=2026053114"></script>
 <script type="text/babel" src="feed.jsx?v=2026061402"></script>
 <script type="text/babel" src="map.jsx?v=2026061401"></script>
@@ -42,8 +42,16 @@
 <script type="text/babel" data-presets="react">
 function App() {
   const [active, setActive] = React.useState("feed");
+  const [dataVersion, setDataVersion] = React.useState(0);
 
   React.useEffect(() => { localStorage.setItem("obs.view", active); }, [active]);
+
+  // Re-render the board when a company is added from the topbar.
+  React.useEffect(() => {
+    const onChange = () => setDataVersion((v) => v + 1);
+    window.addEventListener("obs:data-changed", onChange);
+    return () => window.removeEventListener("obs:data-changed", onChange);
+  }, []);
 
   // Keyboard: g-f/g-m/g-r jumps views
   React.useEffect(() => {
@@ -72,7 +80,7 @@ function App() {
 
   return (
     <Shell active={active} setActive={setActive} density="compact">
-      <div className="main-inner" data-screen-label={"view/" + active}>
+      <div className="main-inner" data-screen-label={"view/" + active} key={active + ":" + dataVersion}>
         {view}
       </div>
     </Shell>

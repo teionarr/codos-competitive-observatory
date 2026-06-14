@@ -18,6 +18,18 @@ window.LAST_SCAN_AT = null;
 
 // Live data loader — tries to fetch market_snapshot_latest.json, falls back to mock above
 window.__obsDataReady = false;
+window.__obsWatchlist = [];
+
+// Merge user-added companies (durable watchlist.json + this-browser localStorage) onto the board.
+function obsMergeWatchlist() {
+  const have = new Set(window.COMPETITORS.map((c) => c.id || c.url));
+  let local = [];
+  try { local = JSON.parse(localStorage.getItem("obs.watchlist") || "[]"); } catch (_) {}
+  for (const e of [...(window.__obsWatchlist || []), ...local]) {
+    const k = e.id || e.url;
+    if (k && !have.has(k)) { window.COMPETITORS.push(e); have.add(k); }
+  }
+}
 
 async function initObservatoryData() {
   try {
@@ -35,6 +47,11 @@ async function initObservatoryData() {
   } catch (_) {
     // Mock data already set above — render will use that
   }
+  try {
+    const wl = await fetch("data/watchlist.json").then((r) => (r.ok ? r.json() : []));
+    window.__obsWatchlist = Array.isArray(wl) ? wl : [];
+  } catch (_) { window.__obsWatchlist = []; }
+  obsMergeWatchlist();
 
   window.__obsDataReady = true;
   window.dispatchEvent(new CustomEvent("obs:data-ready"));

@@ -25,6 +25,7 @@ function TopBar({ active }) {
         <span style={{ color: "var(--fg)" }}>{activeLabel(active)}</span>
       </div>
       <div className="topbar-actions">
+        <AddCompany />
         <a
           className="repo-link"
           href="https://github.com/teionarr/codos-competitive-observatory"
@@ -38,6 +39,75 @@ function TopBar({ active }) {
         <ThemeToggle />
       </div>
     </div>
+  );
+}
+
+// Topbar quick-add: instant (in-memory + this-browser), then best-effort durable
+// sync to /api/add (cross-browser + picked up by the weekly scan) when an add-key is set.
+function AddCompany() {
+  const [url, setUrl] = React.useState("");
+  const [busy, setBusy] = React.useState(false);
+
+  const submit = async (e) => {
+    e.preventDefault();
+    const raw = url.trim();
+    if (!raw) return;
+    const domain = raw.replace(/^https?:\/\//i, "").replace(/\/.*$/, "").replace(/^www\./i, "");
+    if (!domain || !domain.includes(".")) return;
+    const id = domain.replace(/[^a-z0-9]+/gi, "-").toLowerCase();
+    const exists = (window.COMPETITORS || []).some((c) => (c.id || c.url) === id || c.url === domain);
+    if (exists) { setUrl(""); return; }
+
+    const today = new Date().toISOString().slice(0, 10);
+    const entry = {
+      id, name: domain, url: domain, category: "Other", status: "Emerging",
+      funding: "—", team: null, why: "Added to watchlist.", anchor: false,
+      scanned: "—", hash: "—", changed: false, changed_pages: [], delta: null,
+      crawl_status: "pending", discovered: true, discovered_at: today,
+    };
+
+    // Instant: in-memory + this-browser persistence, then re-render the board.
+    window.COMPETITORS = [...(window.COMPETITORS || []), entry];
+    try {
+      const wl = JSON.parse(localStorage.getItem("obs.watchlist") || "[]");
+      wl.push(entry);
+      localStorage.setItem("obs.watchlist", JSON.stringify(wl));
+    } catch (_) {}
+    setUrl("");
+    window.dispatchEvent(new CustomEvent("obs:data-changed"));
+
+    // Durable: sync to the watchlist API so it survives across browsers + feeds the scan.
+    setBusy(true);
+    try {
+      let key = localStorage.getItem("obs.addkey");
+      if (key === null) {
+        key = window.prompt("Add-key to sync this across devices & the weekly scan\n(leave blank to keep adds in this browser only):") || "";
+        localStorage.setItem("obs.addkey", key);
+      }
+      if (key) {
+        await fetch("/api/add", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-add-key": key },
+          body: JSON.stringify({ url: domain, name: domain }),
+        });
+      }
+    } catch (_) { /* stays local-only */ }
+    setBusy(false);
+  };
+
+  return (
+    <form className="add-company" onSubmit={submit}>
+      <input
+        value={url}
+        onChange={(e) => setUrl(e.target.value)}
+        placeholder="add company url…"
+        spellCheck={false}
+        aria-label="Add a company by URL"
+      />
+      <button type="submit" title="Add to watchlist" aria-label="Add company" disabled={busy}>
+        <Icon.plus />
+      </button>
+    </form>
   );
 }
 
