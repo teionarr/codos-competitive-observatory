@@ -31,12 +31,16 @@ jobs:
       - name: Ensure data directory exists
         run: mkdir -p data
 
-      - name: Run CODOS Observatory scan
+      # Secrets come from Doppler (EXA_API_KEY, FIRECRAWL_API_KEY, GEMINI_API_KEY
+      # live in the codos-competitive-observatory project, config prd).
+      # Add a single DOPPLER_TOKEN service-token secret to the repo.
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v3
+
+      - name: Run CODOS Observatory scan (via Doppler)
         env:
-          EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
-          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python main.py
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
+        run: doppler run -- python main.py
 
       - name: Commit updated snapshot
         run: |
