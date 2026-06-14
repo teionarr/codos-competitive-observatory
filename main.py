@@ -331,6 +331,27 @@ def main():
         "duration_seconds": round(time.time() - started_at),
     })
 
+    # Velocity feed: tag this week's signals and carry last week's forward
+    # (the UI dims the prior week below a divider instead of dropping it).
+    this_week_velocity = synthesis.get("velocity_feed", [])
+    for v in this_week_velocity:
+        v["scan_date"] = scan_date
+    prev_velocity = []
+    try:
+        with open("data/market_snapshot_latest.json") as f:
+            _prev = json.load(f)
+        _items = _prev.get("velocity_feed", [])
+        _pdate = (_prev.get("generated_at") or "")[:10]
+        for v in _items:
+            v.setdefault("scan_date", _pdate)
+        _dates = sorted({v.get("scan_date") for v in _items if v.get("scan_date")}, reverse=True)
+        _keep = next((d for d in _dates if d and d != scan_date), None)
+        if _keep:
+            prev_velocity = [v for v in _items if v.get("scan_date") == _keep]
+    except Exception:
+        pass
+    synthesis["velocity_feed"] = this_week_velocity + prev_velocity
+
     # Build + save
     snapshot = build_snapshot(
         synthesis, competitor_statuses, insights,

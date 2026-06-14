@@ -259,6 +259,17 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
   background: var(--bg-panel);
 }
+.feed-grid.past { opacity: 0.5; }
+.feed-week-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 22px 2px 12px;
+  font-family: var(--font-mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--fg-3);
+}
+.feed-week-divider::before, .feed-week-divider::after {
+  content: ""; flex: 1; height: 1px; background: var(--border);
+}
 .feed-card {
   padding: 16px 18px;
   border-right: 1px solid var(--border);
