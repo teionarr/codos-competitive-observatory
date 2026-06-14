@@ -420,6 +420,17 @@ a { color: inherit; text-decoration: none; }
   padding: 1px 5px;
   flex-shrink: 0;
 }
+.unreachable-badge {
+  font-family: var(--font-mono); font-size: 9px;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--red);
+  border: 1px solid var(--red-line);
+  background: var(--red-dim);
+  border-radius: 3px;
+  padding: 1px 5px;
+  flex-shrink: 0;
+  cursor: help;
+}
 
 .tag {
   display: inline-block;

@@ -126,6 +126,7 @@ function CompetitorMap() {
                   <span className="name">{r.name}</span>
                   {r.anchor && <span className="anchor-badge">anchor</span>}
                   {r.discovered && <span className="new-badge" title="Auto-discovered by weekly research">new</span>}
+                  {r.crawl_status === "error" && <span className="unreachable-badge" title="Site couldn't be fetched — verify or fix the URL">site?</span>}
                   <a className="url" href={"https://" + r.url} target="_blank" rel="noopener noreferrer" style={{ cursor: "pointer", color: "var(--fg-3)", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 3 }}
                     onMouseEnter={(e) => e.currentTarget.style.color = "var(--accent)"}
                     onMouseLeave={(e) => e.currentTarget.style.color = "var(--fg-3)"}
